@@ -1,0 +1,46 @@
+﻿body {
+}
+
+#wrap {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/***************************/
+/* HEADER MICRO NAVIGATION */
+/***************************/
+#header-micro {
+    background-image: url("../images/background/bg_topmicronav.jpg");
+    background-repeat: repeat-x;
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.header-micro-nav {
+    height: inherit;
+    margin: 0 auto;
+    text-align: right;
+    vertical-align: top;
+    width: 900px;
+}
+.header-micro-nav ul {
+    display: inline;
+    height: 9px;
+    list-style-type: none;
+}
+.header-micro-nav ul li {
+    display: inline-block;
+    height: 9px;
+    margin: 0 0 0 5px;
+    vertical-align: text-top;
+}
+.header-micro-nav ul li a {
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 9px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}

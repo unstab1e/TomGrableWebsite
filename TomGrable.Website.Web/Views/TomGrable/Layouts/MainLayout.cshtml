@@ -1,0 +1,25 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@using System.Web.Mvc
+@inherits System.Web.Mvc.WebViewPage
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Insert the page title here.</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="CODE_LANGUAGE" content="C#" />
+    <meta name="vs_defaultClientScript" content="JavaScript" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+    <link rel="stylesheet" href=@Url.Content("/Content/css/main.css" )>
+</head>
+<body>
+    @*@Html.Action("RenderBodyElements", "PageProperties")*@
+    @Html.Sitecore().Placeholder("header")
+    <div id="wrap">
+        This is the new CSHTML file. Did this work?
+
+        @Html.Sitecore().Placeholder("content")
+    </div>
+    @Html.Sitecore().Placeholder("footer")
+</body>
+</html>
