@@ -1,0 +1,18 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@using Sitecore.Mvc.Presentation
+@using System.Web.Mvc
+@using Synthesis
+@using Synthesis.Model
+@model TomGrable.Website.Web.Models.Navigation.HeaderMicroNavigationModel
+<div id="header-micro">
+    <div class="header-micro-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            @foreach (INavigationBaseItem nav in Model.NavigationBaseItems) {
+                <li>@nav.Link.RenderedValue</li>
+            }
+        </ul>
+    </div>
+</div>
