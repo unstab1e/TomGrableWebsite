@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Implementations\NavigationService.cs" />
+    <Compile Include="Implementations\SiteService.cs" />
+    <Compile Include="Interfaces\INavigationService.cs" />
+    <Compile Include="Interfaces\ISiteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +96,9 @@
       <Project>{a0b14c72-4d4e-4cb6-8428-6d0c642cfbc5}</Project>
       <Name>TomGrable.Website.Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
