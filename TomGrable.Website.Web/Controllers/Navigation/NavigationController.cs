@@ -7,16 +7,25 @@ using System.Web;
 using System.Web.Mvc;
 using Synthesis.Model;
 using TomGrable.Website.Web.Models.Navigation;
+using TomGrable.Website.Core.Interfaces;
 
 namespace TomGrable.Website.Web.Controllers.Navigation
 {
     public class NavigationController : Controller
     {
-        //// GET: Default
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        private readonly INavigationService _navigationService;
+        private readonly ISiteService _siteService;
+
+        public NavigationController(INavigationService navigationService, ISiteService siteService) {
+            _navigationService = navigationService;
+            _siteService = siteService;
+        }
+
+        // GET: Navigation
+        public ActionResult Index() {
+            return View();
+        }
+
 
         protected IPageBaseItem DataSourceItem = null;
         public ActionResult RenderHeaderMicroNavigation()
@@ -57,15 +66,18 @@ namespace TomGrable.Website.Web.Controllers.Navigation
                 //}
             }
 
-            var dataFolder = RenderingContext.Current.Rendering.Item.As<IFolderItem>();
-            //var dataFolder = (IFolderItem)dataSourceItem;
+            //var dataFolder = RenderingContext.Current.Rendering.Item.As<IFolderItem>();
+            ////var dataFolder = (IFolderItem)dataSourceItem;
 
-            var model = new List<INavigationBaseItem>();
+            //var model = new List<INavigationBaseItem>();
 
-            if (null != dataFolder) {
-                var nav = new HeaderMicroNavigationModel(dataFolder);
-                model = nav.NavigationBaseItems;
-            }
+            //if (null != dataFolder) {
+            //    var nav = new HeaderMicroNavigationModel(dataFolder);
+            //    model = nav.NavigationBaseItems;
+            //}
+            var model = new NavigationModel(_navigationService.GetNavigationItems());
+
+            //return PartialView("~/Views/TomGrable/Components/Navigation/HeaderMicro.cshtml", model);
             return PartialView("~/Views/TomGrable/Components/Navigation/HeaderMicro.cshtml", model);
         }
     }

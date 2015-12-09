@@ -1,8 +1,19 @@
-﻿@model TomGrable.Website.Web.Models.Navigation.HeaderMicroNavigationModel
-
-@{
-    ViewBag.Title = "View";
-}
-
-<h2>View</h2>
-
+﻿@using Sitecore.Mvc
+@using Synthesis.Model
+@model TomGrable.Website.Web.Models.Navigation.NavigationModel
+<div id="header-micro">
+    <div class="header-micro-nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Contact Us</a></li>
+            @foreach (INavigationBaseItem nav in Model.NavigationItems.OfType<INavigationBaseItem>())
+            {
+                <li>
+                    @Html.Sitecore().Field(nav.Link.Id.ToString(), nav.InnerItem, new {
+                        @target = nav.Link.Target == "Active Browser" ? "_self" : nav.Link.Target
+                    })
+                </li>
+            }
+        </ul>
+    </div>
+</div>
